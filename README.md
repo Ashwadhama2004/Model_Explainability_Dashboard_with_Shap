@@ -1,21 +1,21 @@
-# 🔍 Model Explainability Dashboard with SHAP
+#  Model Explainability Dashboard with SHAP
 
 An interactive, production-quality machine learning explainability dashboard built with **Streamlit**, **XGBoost**, and **SHAP**. This project demonstrates end-to-end ML system development from training to deployment.
 
 ![Dashboard Preview](screenshots/dashboard_overview.png)
 
-## 🌐 Live Demo
+##  Live Demo
 
-**[🚀 View Live Dashboard](https://modelexplainabilitydashboardwithshap-7jrq6izspvlqckjojzsmmt.streamlit.app/)**
+**[ View Live Dashboard](https://modelexplainabilitydashboardwithshap-7jrq6izspvlqckjojzsmmt.streamlit.app/)**
 
 
 ---
 
-## 🔗 Repository
+##  Repository
 
 **[GitHub Project](https://github.com/Ashwadhama2004/Model_Explainability_Dashboard_with_Shap)**
 
-## 🎯 Features
+##  Features
 
 ### Core Features
 - **Dataset Overview**: Preview data, class distribution, and data quality metrics
@@ -25,16 +25,16 @@ An interactive, production-quality machine learning explainability dashboard bui
 - **Feature Analysis**: Correlation heatmaps and distribution histograms
 
 ### Advanced Features
-- 🎨 Premium dark-themed UI with gradient styling
-- ⚡ Cached model and SHAP computations for fast loading
-- 📊 Calibration curves for probability trustworthiness
-- 🔗 Feature interaction (dependence) plots
-- ⚖️ Instance comparison functionality
-- 📈 Probability gauges for predictions
+-  Premium dark-themed UI with gradient styling
+-  Cached model and SHAP computations for fast loading
+-  Calibration curves for probability trustworthiness
+-  Feature interaction (dependence) plots
+-  Instance comparison functionality
+-  Probability gauges for predictions
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 model-explainability-dashboard/
@@ -52,7 +52,7 @@ model-explainability-dashboard/
 
 ---
 
-## 📅 Development Timeline (4-Day Breakdown)
+##  Development Timeline (4-Day Breakdown)
 
 ### Day 1: Planning & Data Layer
 - Analyzed requirements and created architecture plan
@@ -80,7 +80,7 @@ model-explainability-dashboard/
 
 ---
 
-## 🚧 Challenges Faced & Solutions
+##  Challenges Faced & Solutions
 
 ### 1. NumPy Version Compatibility
 **Challenge**: Encountered `numpy.dtype size changed` error due to version conflicts between packages.
@@ -104,7 +104,7 @@ model-explainability-dashboard/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Local Installation
 
@@ -139,7 +139,7 @@ model-explainability-dashboard/
 
 ---
 
-## 📊 Model Performance
+##  Model Performance
 
 | Metric | Score |
 |--------|-------|
@@ -157,7 +157,7 @@ model-explainability-dashboard/
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 This project uses the **Breast Cancer Wisconsin (Diagnostic)** dataset from scikit-learn:
 - **569 samples** with **30 features**
@@ -166,7 +166,7 @@ This project uses the **Breast Cancer Wisconsin (Diagnostic)** dataset from scik
 
 ---
 
-## 🔍 SHAP Explanations
+##  SHAP Explanations
 
 SHAP (SHapley Additive exPlanations) provides:
 - **Global interpretability**: Which features matter most overall
@@ -175,7 +175,7 @@ SHAP (SHapley Additive exPlanations) provides:
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Dashboard Overview
 ![Overview](screenshots/dashboard_overview.png)
@@ -191,7 +191,7 @@ SHAP (SHapley Additive exPlanations) provides:
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -204,21 +204,21 @@ SHAP (SHapley Additive exPlanations) provides:
 
 ---
 
-## 📝 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues, and feature requests are welcome!
 
 ---
 
-## 📧 Contact
+##  Contact
 
-Created with ❤️ for machine learning explainability
+Gaurang Chaturvedi:- [gaurangchaturvedi04@gmail.com]
 
 ---
 
