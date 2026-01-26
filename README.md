@@ -8,7 +8,6 @@ An interactive, production-quality machine learning explainability dashboard bui
 
 **[🚀 View Live Dashboard](https://modelexplainabilitydashboardwithshap-7jrq6izspvlqckjojzsmmt.streamlit.app/)**
 
-> *Note: If the link above is not active yet, please deploy the app on Streamlit Cloud first.*
 
 ---
 
