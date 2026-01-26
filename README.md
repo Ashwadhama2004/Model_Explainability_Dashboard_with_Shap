@@ -6,9 +6,15 @@ An interactive, production-quality machine learning explainability dashboard bui
 
 ## 🌐 Live Demo
 
-**[🚀 View Live Dashboard](https://model-explainability-dashboard.streamlit.app)**
+**[🚀 View Live Dashboard](https://modelexplainabilitydashboardwithshap-7jrq6izspvlqckjojzsmmt.streamlit.app/)**
+
+> *Note: If the link above is not active yet, please deploy the app on Streamlit Cloud first.*
 
 ---
+
+## 🔗 Repository
+
+**[GitHub Project](https://github.com/Ashwadhama2004/Model_Explainability_Dashboard_with_Shap)**
 
 ## 🎯 Features
 
