@@ -111,6 +111,6 @@ venv.bak/
 Thumbs.db
 
 # Project specific
-*.pkl
-artifacts/*.pkl
-!artifacts/.gitkeep
+# Note: We DO want to track artifacts/*.pkl for Streamlit Cloud deployment
+# so the app doesn't have to retrain on every cold start
+!artifacts/*.pkl

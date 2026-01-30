@@ -31,7 +31,7 @@ from src.train import run_training_pipeline
 # Page configuration
 st.set_page_config(
     page_title="ML Explainability Dashboard",
-    page_icon="🔍",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -45,9 +45,9 @@ def load_model_and_data():
     
     # Check if model exists
     if not os.path.exists(model_path):
-        with st.spinner("🚀 Training model for the first time... This may take a few minutes."):
+        with st.spinner(" Training model for the first time... This may take a few minutes."):
             results = run_training_pipeline(use_grid_search=True)
-        st.success("✅ Model trained successfully!")
+        st.success(" Model trained successfully!")
     
     # Load artifacts
     model = load_artifact('trained_model.pkl')
@@ -66,7 +66,7 @@ def load_shap_artifacts(_model, _training_data):
         return load_artifact('shap_artifacts.pkl')
     
     # Compute SHAP values
-    with st.spinner("🔍 Computing SHAP values... This may take a moment."):
+    with st.spinner(" Computing SHAP values... This may take a moment."):
         explainer = create_explainer(_model)
         X_test = _training_data['X_test']
         shap_values = compute_shap_values(explainer, X_test)
@@ -86,7 +86,7 @@ def load_shap_artifacts(_model, _training_data):
 def main():
     """Main application entry point."""
     # Header
-    st.title("🔍 Model Explainability Dashboard")
+    st.title(" Model Explainability Dashboard")
     st.markdown("### Powered by SHAP & XGBoost")
     st.markdown("An interactive dashboard for understanding machine learning model predictions using SHAP explanations.")
     st.markdown("---")
@@ -98,7 +98,7 @@ def main():
     except Exception as e:
         st.error(f"Error loading model: {e}")
         st.info("Click the button below to train a new model.")
-        if st.button("🚀 Train New Model"):
+        if st.button(" Train New Model"):
             with st.spinner("Training model..."):
                 run_training_pipeline(use_grid_search=True)
             st.success("Model trained! Please refresh the page.")
@@ -110,14 +110,14 @@ def main():
     
     # Sidebar navigation
     with st.sidebar:
-        st.markdown("## 🎛️ Dashboard Controls")
+        st.markdown("##  Dashboard Controls")
         page = st.radio(
             "Select Section",
-            ["📊 Overview", "📈 Model Performance", "🎯 Feature Importance", 
-             "🔬 Instance Explanation", "📉 Feature Analysis"]
+            [" Overview", " Model Performance", " Feature Importance", 
+             " Instance Explanation", " Feature Analysis"]
         )
         st.markdown("---")
-        st.markdown("### ℹ️ About")
+        st.markdown("### ℹ About")
         st.markdown("""
         This dashboard provides:
         - Model performance metrics
@@ -127,25 +127,25 @@ def main():
         """)
     
     # Page content
-    if page == "📊 Overview":
+    if page == " Overview":
         render_overview(X, y, feature_names, target_names, validation_report)
-    elif page == "📈 Model Performance":
+    elif page == " Model Performance":
         render_model_performance(model, training_data)
-    elif page == "🎯 Feature Importance":
+    elif page == " Feature Importance":
         render_feature_importance(model, training_data, shap_artifacts)
-    elif page == "🔬 Instance Explanation":
+    elif page == " Instance Explanation":
         render_instance_explanation(model, training_data, shap_artifacts)
-    elif page == "📉 Feature Analysis":
+    elif page == " Feature Analysis":
         render_feature_analysis(training_data)
     
     # Footer
     st.markdown("---")
-    st.markdown("🔍 Model Explainability Dashboard | Built with Streamlit & SHAP")
+    st.markdown(" Model Explainability Dashboard | Built with Streamlit & SHAP")
 
 
 def render_overview(X, y, feature_names, target_names, validation_report):
     """Render the dataset overview section."""
-    st.header("📊 Dataset Overview")
+    st.header(" Dataset Overview")
     
     # Dataset stats
     col1, col2, col3, col4 = st.columns(4)
@@ -160,13 +160,13 @@ def render_overview(X, y, feature_names, target_names, validation_report):
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.subheader("📋 Data Preview")
+        st.subheader(" Data Preview")
         display_df = X.copy()
         display_df['Target'] = y.map({0: target_names[0], 1: target_names[1]})
         st.dataframe(display_df.head(10), use_container_width=True)
     
     with col2:
-        st.subheader("🎯 Target Distribution")
+        st.subheader(" Target Distribution")
         fig, ax = plt.subplots(figsize=(6, 4))
         colors = ['#667eea', '#764ba2']
         target_counts = y.value_counts()
@@ -179,7 +179,7 @@ def render_overview(X, y, feature_names, target_names, validation_report):
 
 def render_model_performance(model, training_data):
     """Render model performance metrics section."""
-    st.header("📈 Model Performance")
+    st.header(" Model Performance")
     
     X_test = training_data['X_test']
     y_test = training_data['y_test']
@@ -203,7 +203,7 @@ def render_model_performance(model, training_data):
     st.markdown("---")
     
     # Visualization tabs
-    tab1, tab2, tab3 = st.tabs(["📊 Confusion Matrix", "📈 ROC Curve", "📉 PR Curve"])
+    tab1, tab2, tab3 = st.tabs([" Confusion Matrix", " ROC Curve", " PR Curve"])
     
     with tab1:
         fig = plot_confusion_matrix(y_test, y_pred, target_names)
@@ -223,14 +223,14 @@ def render_model_performance(model, training_data):
 
 def render_feature_importance(model, training_data, shap_artifacts):
     """Render global feature importance section."""
-    st.header("🎯 Feature Importance (SHAP)")
+    st.header(" Feature Importance (SHAP)")
     
     X_test = training_data['X_test']
     feature_names = training_data['feature_names']
     shap_values = shap_artifacts['shap_values']
     
     # Tabs for different views
-    tab1, tab2 = st.tabs(["📊 Bar Plot", "🐝 Summary Plot"])
+    tab1, tab2 = st.tabs([" Bar Plot", " Summary Plot"])
     
     with tab1:
         st.subheader("Global Feature Importance")
@@ -249,7 +249,7 @@ def render_feature_importance(model, training_data, shap_artifacts):
     st.markdown("---")
     
     # Feature dependence plot
-    st.subheader("🔗 Feature Dependence")
+    st.subheader(" Feature Dependence")
     selected_feature = st.selectbox("Select Feature", feature_names, index=0)
     fig = plot_dependence(shap_values, X_test, selected_feature)
     st.pyplot(fig)
@@ -258,7 +258,7 @@ def render_feature_importance(model, training_data, shap_artifacts):
 
 def render_instance_explanation(model, training_data, shap_artifacts):
     """Render individual instance explanation section."""
-    st.header("🔬 Individual Prediction Explanation")
+    st.header(" Individual Prediction Explanation")
     
     X_test = training_data['X_test']
     y_test = training_data['y_test']
@@ -271,7 +271,7 @@ def render_instance_explanation(model, training_data, shap_artifacts):
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        st.subheader("🎯 Select Instance")
+        st.subheader(" Select Instance")
         instance_idx = st.number_input(
             "Instance Index",
             min_value=0,
@@ -280,7 +280,7 @@ def render_instance_explanation(model, training_data, shap_artifacts):
             step=1
         )
         
-        if st.button("🎲 Random Instance"):
+        if st.button(" Random Instance"):
             instance_idx = np.random.randint(0, len(X_test))
             st.rerun()
     
@@ -291,13 +291,13 @@ def render_instance_explanation(model, training_data, shap_artifacts):
         prediction_proba = model.predict_proba(instance)[0]
         actual = y_test.iloc[instance_idx]
         
-        st.subheader("📊 Prediction Summary")
+        st.subheader(" Prediction Summary")
         
         pred_col1, pred_col2, pred_col3 = st.columns(3)
         
         with pred_col1:
             predicted_class = target_names[prediction]
-            color = "🟢" if prediction == actual else "🔴"
+            color = "" if prediction == actual else ""
             st.metric("Predicted Class", f"{color} {predicted_class}")
         
         with pred_col2:
@@ -311,7 +311,7 @@ def render_instance_explanation(model, training_data, shap_artifacts):
     st.markdown("---")
     
     # Probability display
-    st.subheader("📈 Prediction Probability")
+    st.subheader(" Prediction Probability")
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f"**{target_names[0]} (Malignant)**")
@@ -325,17 +325,17 @@ def render_instance_explanation(model, training_data, shap_artifacts):
     st.markdown("---")
     
     # SHAP waterfall
-    st.subheader("🌊 SHAP Waterfall Explanation")
+    st.subheader(" SHAP Waterfall Explanation")
     fig = plot_waterfall(shap_explanation, instance_idx)
     st.pyplot(fig)
     plt.close()
     
     # Feature contributions table
-    st.subheader("📋 Feature Contributions")
+    st.subheader(" Feature Contributions")
     explanation = get_instance_explanation(model, explainer, X_test, instance_idx, feature_names)
     contributions_df = explanation['contributions'].copy()
     contributions_df['impact'] = contributions_df['shap_value'].apply(
-        lambda x: '🔴 Increases Risk' if x > 0 else '🟢 Decreases Risk'
+        lambda x: ' Increases Risk' if x > 0 else ' Decreases Risk'
     )
     contributions_df['shap_value'] = contributions_df['shap_value'].round(4)
     contributions_df['value'] = contributions_df['value'].round(4)
@@ -344,11 +344,11 @@ def render_instance_explanation(model, training_data, shap_artifacts):
 
 def render_feature_analysis(training_data):
     """Render feature analysis section."""
-    st.header("📉 Feature Analysis")
+    st.header(" Feature Analysis")
     
     X = training_data['X_train_original']
     
-    st.subheader("🔥 Feature Correlation Heatmap")
+    st.subheader(" Feature Correlation Heatmap")
     st.markdown("Understanding correlations helps interpret SHAP values.")
     fig = plot_feature_correlation(X)
     st.pyplot(fig)
